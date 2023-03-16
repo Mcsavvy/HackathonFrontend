@@ -1,0 +1,64 @@
+body {
+  align-content: right;
+}
+.Container {
+  background-color: #ffffff;
+  width: 60%;
+  height: 75%;
+  border: 1px solid #7c18da;
+  border-radius: 4px;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  align-self: right;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.Container ul {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  list-style: none;
+  align-items: stretch;
+  justify-content: center;
+  position: relative;
+  justify-content: center;
+}
+.Container img {
+  width: 200px;
+  height: 200px;
+}
+.Container li {
+  border: 1px solid #DDDDDD;
+  border-radius: 8px;
+  text-align: center;
+  padding: 1rem;
+  margin: 2rem;
+}
+.Container >ul > li:hover {
+  transition-timing-function: ease;
+  box-shadow: 4px 4px 4px #aa89c9;
+}
+.Container > ul > li > h6 {
+  font-size: 18px;
+  font-style: normal;
+  font-family: 'Algerian';
+  border-top: 1px solid #000000;
+  margin: 0;
+
+  width: 100%;
+}
+.Myquery textarea {
+  resize: none;
+  overflow: hidden;
+  min-height: 50px;
+  max-height: fit-content;
+  width: 700px;
+  align-self: center;
+}
+
+.Myquery  textarea:focus {
+  outline: none;
+}

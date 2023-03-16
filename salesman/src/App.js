@@ -1,25 +1,40 @@
-import logo from './logo.svg';
-import './App.css';
+import './styles/App.css';
+import React from 'react'
+import Myquery from './form';
+import Header from './Header'
 
-function App() {
+function Container() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="Container">
+      <ul>
+        <li>
+          <img src={process.env.PUBLIC_URL + "agus.jpg"} alt='favico'/>
+          <h6>Sansung Galazy s9</h6>
+        </li>
+        <li>
+          <img src={process.env.PUBLIC_URL + "toshiba.jpg"} alt='favico'/>
+          <h6>Sansung Galazy s9</h6>
+        </li>
+        <li>
+          <img src={process.env.PUBLIC_URL + "samsung.jpg"} alt='favico'/>
+          <h6>Sansung Galazy s9</h6>
+        </li>
+        <li>
+          <img src={process.env.PUBLIC_URL + "portegx.png"} alt='favico'/>
+          <h6>Sansung Galazy s9</h6>
+        </li>
+      </ul>
     </div>
   );
+}
+function App() {
+  return (
+    <div class='App'>
+      <Header/>
+      <Container/>
+      <Myquery/>
+      </div>
+  )
 }
 
 export default App;
