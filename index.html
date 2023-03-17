@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="materialize/css/materialize.css">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Header -->
+
+    <nav class="black">
+        <ul>
+            <li><a href="">Salesman</a></li>
+            <button style="border:none; background-color: transparent;" class="z-depth-0 white-text" onclick="window.location.assign('index.html?term=lenovo')" class="btn">View Lenovo</button> 
+            <button style="border:none; background-color: transparent;" class="z-depth-0 white-text" onclick="window.location.assign('index.html?term=hp')" class="btn">View hp</button> 
+            
+        </ul>
+    </nav>
+
+
+    <section class="container"><br><br><br>
+        <div class="row" id="data"></div>
+
+       
+    </section>
+
+
+    <script>
+
+
+        ////// GET ALL NEWS /////
+        // Get the URL parameter string
+        const queryString = window.location.search;
+
+        // Parse the query string to get the parameters as an object
+        const urlParams = new URLSearchParams(queryString);
+
+        // Get the value of the "id" parameter
+        const idSearch = urlParams.get('term');
+
+        // Log the ID to the console
+        console.log(idSearch);
+
+        if (idSearch === null) {
+            idSearchTerm = 'all';
+        }else{
+            idSearchTerm = idSearch;
+        }
+
+        // Fetch data from API
+        fetch(`https://5000-mcsavvy-hackathon-qc17tz4ggwh.ws-eu90.gitpod.io/search/${idSearchTerm}`)
+        .then(response => response.json())
+        .then(data => {
+            // Loop through array using forEach
+            console.log(data);
+
+            data.recommendations.forEach(item => {
+                // Do something with each item
+                imageUrl = item.images[0].url;
+                // console.log(imageUrl);
+                const markup = `
+                    <div class="col l4 m4 s12">
+                        <img style="width: 100%;" src="${imageUrl}" alt="">
+                        <h5 style="font-weight:bold">${item.name}</h5>
+                        <p style="font-weight:500">${item.info}</p>
+                        <button>view</button>
+                        <br/><br/><br/><br/></div>
+                        
+                    `;
+                    document.getElementById('data').insertAdjacentHTML('beforeend', markup);
+                // console.log(item);
+            
+                });
+        }
+        ).catch(error => console.error(error));
+
+    </script>
+
+</body>
+</html>
