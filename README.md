@@ -1,2 +1,2 @@
 # HackathonFrontend
-The Frontend Of The Hackathons
+The Frontend Of The Hackathon
